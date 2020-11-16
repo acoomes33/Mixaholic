@@ -1,15 +1,13 @@
 class DrinksController < ApplicationController
+
     def index
         drinks = Drink.all
-        render json: drinks
+        DrinkSerializer.new(drinks).to_serialized_json
     end 
 
     def show 
         drink = Drink.find_by(params[:id])
-        render json: drink
+        DrinkSerializer.new(drink).to_serialized_json
     end 
 
-    def create
-
-    end 
 end
