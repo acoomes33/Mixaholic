@@ -13,17 +13,19 @@
 
         <main>
 
-            <form id="drinkForm" data-action="create">
+            <form id="drinkForm"  data-action="create">
                 <div class="input-field">
-                    <input type="text" name="name" id="">
+                  <input type="text" name="name" id="name">
+                  <label for="name">Name</label>
                 </div>
+        
                 <div class="input-field">
-                    <input type="text" name="name" id="">
+                  <input type="text" name="description" id="description">
+                  <label for="description">Description</label>
                 </div>
-                <div class="input-field">
-                    <input type="text" name="name" id="">
-                </div>
-            </form>
+        
+                <input type="submit" value="Create Drink" class="btn">
+              </form>
 
             <div id="drinks-list">
             </div>
