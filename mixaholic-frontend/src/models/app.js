@@ -30,8 +30,11 @@ class App {
     newDrink(e){
         e.preventDefault();
         const form = e.target;
-        
-        const drink = new Drink({});
-        this.drinkAdapter.drink();
+
+        const drink = new Drink({
+            name: name.value,
+            description: description.value
+        });
+        this.drinkAdapter.post(drink);
     }
 }

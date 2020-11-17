@@ -8,13 +8,13 @@ class Adapter {
         .then(resp => resp.json());
     }
 
-    drink() {
+    post(inst) {
         return fetch(`http://localhost:3000/${this.resource}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: json.stringify(data),
+            body: inst.json(),
         });
     }
 }

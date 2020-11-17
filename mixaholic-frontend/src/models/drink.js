@@ -17,4 +17,11 @@ class Drink {
         <p>${this.description}</p>
         </div>`;
     }
+
+    json() {
+        return JSON.stringify({
+            name: this.name,
+            description = this.description
+        })
+    }
 }
