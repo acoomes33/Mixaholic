@@ -5,8 +5,8 @@ class Drink {
         this.rating = data.rating;
         this.created_at = data.created_at;
         this.updated_at = data.updated_at;
+        this.reviews = data.reviews;
         // this.ingredients = data.ingredients;
-        // this.reviews = data.reviews;
 
     }
 
