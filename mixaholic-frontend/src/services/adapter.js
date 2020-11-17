@@ -14,7 +14,7 @@ class Adapter {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: inst.json(),
-        });
+            body: JSON.stringify(inst),
+        }).then(resp => resp.json());
     }
 }

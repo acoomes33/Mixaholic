@@ -5,6 +5,7 @@ class App {
         this.getDrinks().then(() => {
             this.renderDrinks();
         });
+        drinkForm.addEventListener("submit", this.newDrink);
     }
 
     getDrinks(){
@@ -27,14 +28,23 @@ class App {
         );
     }
 
-    newDrink(e){
+    newDrink = (e) => {
         e.preventDefault();
         const form = e.target;
 
         const drink = new Drink({
-            name: name.value,
-            description: description.value
+            name: form.name.value,
+            description: form.description.value
         });
-        this.drinkAdapter.post(drink);
+        this.drinkAdapter.post(drink).then(d => {
+            drink.id = d.id;
+            this.addDrink(drink);
+            drinkForm.reset();
+        });
+    }
+
+    addDrink(drink) {
+        this.drinks.push(drink);
+        this.renderDrinks();
     }
 }
