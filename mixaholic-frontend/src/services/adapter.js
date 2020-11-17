@@ -3,8 +3,18 @@ class Adapter {
         this.resource = resource;
     }
 
-    getIndexFetch() {
+    getIndex() {
         return fetch(`http://localhost:3000/${this.resource}`)
         .then(resp => resp.json());
+    }
+
+    drink() {
+        return fetch(`http://localhost:3000/${this.resource}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: json.stringify(data),
+        });
     }
 }
