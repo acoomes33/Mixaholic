@@ -50,11 +50,22 @@ class App {
     }
 
     handleClick = (e) => {
-        debugger;
-        if (e.target.className === "drink-item"){
-            const id = e.target.dataset.id;
+        if (e.target.className === "btn btn-sm btn-outline-secondary"){
+            const ingDiv = e.target.parentElement.parentElement;
+            const id = Number(ingDiv.dataset.id);
+            const curDrink = Drink.all.find(d => d.id === id)
             
-            e.target.innerHTML += e.target.renderShowHTML();
+            if (e.target.innerHTML === "More Info"){
+                e.target.innerHTML = "Less Info"
+                ingDiv.innerHTML += curDrink.renderShowHTML();
+            }
+            else if(e.target.innerHTML === "Less Info"){
+                ingDiv.innerHTML = `<div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">More Info</button>
+                </div>`
+            }
+            
+            // e.target.innerHTML += e.target.renderShowHTML();
         }
     }
 
