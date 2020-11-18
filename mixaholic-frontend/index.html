@@ -15,19 +15,23 @@
 
         <main>
 
-            <form id="drinkForm"  data-action="create">
-                <div class="input-field">
-                  <input type="text" name="name" id="name">
-                  <label for="name">Name</label>
-                </div>
-        
-                <div class="input-field">
-                  <input type="text" name="description" id="description">
-                  <label for="description">Description</label>
-                </div>
-        
-                <input type="submit" value="Create Drink" class="btn">
-            </form>
+            <div class="container">
+                <form id="drinkForm" data-action="create">
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" id="form-name" name="drink[name]">
+                  </div>
+                  <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" class="form-control" id="form-model" name="drink[description]">
+                  </div>
+                  <div class="form-group">
+                    <label>Image URL</label>
+                    <input type="text" class="form-control" id="form-year" name="drink[image_url]">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Create Drink</button>
+                </form>
+            </div>
 
               <div class="row text-center">
 
@@ -35,43 +39,21 @@
                   <div class="card h-100">
                     <img class="card-img-top" src="http://placehold.it/500x325" alt="">
                     <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                      <h4 class="card-name">Drink Name</h4>
+                      <p class="card-text">Description: </p>
                     </div>
                     <div class="card-footer">
-                      <a href="#" class="btn btn-primary">Find Out More!</a>
-                    </div>
-                  </div>
-                </div>
-          
-                <div class="col-lg-3 col-md-6 mb-4">
-                  <div class="card h-100">
-                    <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                    <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-                    </div>
-                    <div class="card-footer">
-                      <a href="#" class="btn btn-primary">Find Out More!</a>
-                    </div>
-                  </div>
-                </div>
-          
-                <div class="col-lg-3 col-md-6 mb-4">
-                  <div class="card h-100">
-                    <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                    <div class="card-body">
-                      <h4 class="card-title">Card title</h4>
-                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-                    </div>
-                    <div class="card-footer">
-                      <a href="#" class="btn btn-primary">More Info</a>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">More Info</button>
+                          </div>
                     </div>
                   </div>
                 </div>
           
               </div>
               <!-- /.row -->
+
+              
 
         </main>
 
