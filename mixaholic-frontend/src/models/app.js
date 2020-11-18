@@ -32,10 +32,12 @@ class App {
     newDrink = (e) => {
         e.preventDefault();
         const form = e.target;
-
+        debugger;
         const drink = new Drink({
             name: form.name.value,
-            description: form.description.value
+            description: form.description.value,
+            image_url: form.image_url.value,
+            ingredients_attributes
         });
         this.drinkAdapter.post(drink).then(d => {
             drink.id = d.id;
@@ -56,7 +58,7 @@ class App {
             const curDrink = Drink.all.find(d => d.id === id)
             
             if (e.target.innerHTML === "More Info"){
-                debugger;
+                // debugger;
                 e.target.innerHTML = "Less Info"
                 ingDiv.innerHTML += curDrink.renderShowHTML();
             }
@@ -66,7 +68,6 @@ class App {
                 </div>`
             }
             
-            // e.target.innerHTML += e.target.renderShowHTML();
         }
     }
 
