@@ -6,6 +6,7 @@ class App {
             this.renderDrinks();
         });
         drinkForm.addEventListener("submit", this.newDrink);
+        document.body.addEventListener("click", this.handleClick);
     }
 
     getDrinks(){
@@ -47,4 +48,14 @@ class App {
         this.drinks.push(drink);
         this.renderDrinks();
     }
+
+    handleClick = (e) => {
+        debugger;
+        if (e.target.className === "drink-item"){
+            const id = e.target.dataset.id;
+            
+            e.target.innerHTML += e.target.renderShowHTML();
+        }
+    }
+
 }
