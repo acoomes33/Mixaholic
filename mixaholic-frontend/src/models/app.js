@@ -32,12 +32,16 @@ class App {
     newDrink = (e) => {
         e.preventDefault();
         const form = e.target;
-        debugger;
+        const ing_attr = [];
+        document.querySelectorAll(".form-ingredients").forEach( ing => {
+            ing_attr.push({description: ing.value})
+        })
         const drink = new Drink({
+    
             name: form.name.value,
             description: form.description.value,
             image_url: form.image_url.value,
-            ingredients_attributes
+            ingredients_attributes: ing_attr
         });
         this.drinkAdapter.post(drink).then(d => {
             drink.id = d.id;

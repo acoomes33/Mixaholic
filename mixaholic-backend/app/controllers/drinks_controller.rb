@@ -11,7 +11,6 @@ class DrinksController < ApplicationController
     end 
 
     def create
-        byebug
         @drink = Drink.new(drink_params)
     
         if @drink.save

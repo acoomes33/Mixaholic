@@ -8,8 +8,9 @@ class Drink {
         this.rating = data.rating;
         this.created_at = data.created_at;
         this.updated_at = data.updated_at;
+        this.image_url = data.image_url;
         // this.reviews = data.reviews;
-        this.ingredients = data.ingredients;
+        this.ingredients_attributes = data.ingredients_attributes;
         this.id = data.id;
         Drink.all.push(this);
 
@@ -34,7 +35,7 @@ class Drink {
 
     renderShowHTML(){
         return `<h4>Ingredients: </h4>
-        <ul> ${this.ingredients.map(ing => `<li>${ing.description}</li>`).join(" ")}
+        <ul> ${this.ingredients_attributes.map(ing => `<li>${ing.description}</li>`).join(" ")}
             </ul>`
     }
 }
