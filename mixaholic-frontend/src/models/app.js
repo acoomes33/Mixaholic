@@ -56,6 +56,7 @@ class App {
             const curDrink = Drink.all.find(d => d.id === id)
             
             if (e.target.innerHTML === "More Info"){
+                debugger;
                 e.target.innerHTML = "Less Info"
                 ingDiv.innerHTML += curDrink.renderShowHTML();
             }
