@@ -73,6 +73,7 @@ class App {
                 </div>`
             }
             else if (e.target.className == "deleteDrink") {
+                debugger;
                 // const id = e.target.dataset.id;
                 // this.drinkAdapter.delete(id).then(() => {
                 //   Drink.all = Drink.all.filter((d) => {

@@ -20,10 +20,17 @@ class DrinksController < ApplicationController
         end
     end
 
+    def destroy
+        set_drink 
+        @drink.destroy
+        render json: 
+
+    end 
+
     private
 
     def set_drink
-      @drink = Drink.find(params[:id])
+      @drink = Drink.find_by(id: params[:id])
     end
 
     def drink_params
