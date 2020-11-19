@@ -7,6 +7,7 @@ class App {
         });
         drinkForm.addEventListener("submit", this.newDrink);
         document.body.addEventListener("click", this.handleClick);
+        ingButton.addEventListener("click", this.addInput);
     }
 
     getDrinks(){
@@ -73,6 +74,14 @@ class App {
             }
             
         }
+    }
+
+    addInput(){
+        let counter = 1;
+        const newdiv = document.createElement('div');
+        newdiv.innerHTML = ` <input type="text" class="form-ingredients" id="drink_ingredients_attributes_${counter}_description" name="drink[ingredients_attributes][${counter}][description]">`
+        ingDiv.appendChild(newdiv);
+        counter++;
     }
 
 }
