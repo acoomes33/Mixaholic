@@ -23,8 +23,6 @@ class DrinksController < ApplicationController
     def destroy
         set_drink 
         @drink.destroy
-        render json: 
-
     end 
 
     private

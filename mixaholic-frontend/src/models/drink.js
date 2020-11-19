@@ -23,7 +23,7 @@ class Drink {
           <div class="card-body">
             <h4 class="card-name">${this.name}</h4>
             <p class="card-text">Description: ${this.description}</p>
-            <button type="button" class="deleteDrink">Delete Drink</button>
+            <button type="button" class="deleteDrink" data-id="${this.id}">Delete Drink</button>
           </div>
           <div class="card-footer" data-id="${this.id}">
               <div class="btn-group">

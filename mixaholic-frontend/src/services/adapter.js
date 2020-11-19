@@ -19,13 +19,12 @@ class Adapter {
         }).then(resp => resp.json());
     }
 
-    delete(inst) {
-        return fetch(`http://localhost:3000/${this.resource}`, {
+    delete(id) {
+        return fetch(`http://localhost:3000/${this.resource}/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(inst),
         }).then(resp => resp.json());
     }
 }

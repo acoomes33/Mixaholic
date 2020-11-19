@@ -58,32 +58,31 @@ class App {
 
     handleClick = (e) => {
         if (e.target.className === "btn btn-sm btn-outline-secondary"){
-            const ingDiv = e.target.parentElement.parentElement;
-            const ingId = Number(ingDiv.dataset.id);
-            const curDrink = Drink.all.find(d => d.id === ingId)
             
             if (e.target.innerHTML === "More Info"){
-                // debugger;
+                const ingDiv = e.target.parentElement.parentElement;
+                const ingId = Number(ingDiv.dataset.id);
+                const curDrink = Drink.all.find(d => d.id === ingId);
                 e.target.innerHTML = "Less Info"
                 ingDiv.innerHTML += curDrink.renderShowHTML();
             }
             else if(e.target.innerHTML === "Less Info"){
+                const ingDiv = e.target.parentElement.parentElement;
                 ingDiv.innerHTML = `<div class="btn-group">
                 <button type="button" class="btn btn-sm btn-outline-secondary">More Info</button>
                 </div>`
-            }
-            else if (e.target.className == "deleteDrink") {
-                debugger;
-                // const id = e.target.dataset.id;
-                // this.drinkAdapter.delete(id).then(() => {
-                //   Drink.all = Drink.all.filter((d) => {
-                //     return d.id != id;
-                //   });
-                //   this.renderDrinks();
-                // });
-              }
-            
+            }   
         }
+        else if (e.target.innerHTML == "Delete Drink") {
+            
+            const id = Number(e.target.dataset.id)
+            this.drinkAdapter.delete(id).then(()  => {
+                Drink.all = Drink.all.filter(d => {
+                    return d.id != id;
+                });
+                this.renderDrinks();
+            })
+          }
     }
 
     addInput(){
