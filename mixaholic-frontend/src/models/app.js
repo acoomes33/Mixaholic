@@ -1,6 +1,5 @@
 class App {
     constructor() {
-        this.drinks = [];
         this.drinkAdapter = new Adapter("drinks");
         this.getDrinks().then(() => {
             this.renderDrinks();
@@ -12,17 +11,17 @@ class App {
 
     getDrinks(){
         return this.drinkAdapter.getIndex().then(data => {
-            this.drinks = data.map(drink => {
+            Drink.all = data.map(drink => {
                 return new Drink(drink);
             });
+            
         });
     }
 
     renderDrinks() {
         const drinksDiv = document.getElementById("drinks-list");
-        
         drinksDiv.innerHTML = "";
-        this.drinks.forEach(
+        Drink.all.forEach(
             drink => {
                 drinksDiv.innerHTML += drink.html();
                 
@@ -36,14 +35,16 @@ class App {
         const ing_attr = [];
         document.querySelectorAll(".form-ingredients").forEach( ing => {
             ing_attr.push({description: ing.value})
+
         })
         const drink = new Drink({
     
             name: form.name.value,
             description: form.description.value,
             image_url: form.image_url.value,
-            ingredients_attributes: ing_attr
+            ingredients: ing_attr
         });
+       
         this.drinkAdapter.post(drink).then(d => {
             drink.id = d.id;
             this.addDrink(drink);
@@ -52,15 +53,14 @@ class App {
     }
 
     addDrink(drink) {
-        this.drinks.push(drink);
         this.renderDrinks();
     }
 
     handleClick = (e) => {
         if (e.target.className === "btn btn-sm btn-outline-secondary"){
             const ingDiv = e.target.parentElement.parentElement;
-            const id = Number(ingDiv.dataset.id);
-            const curDrink = Drink.all.find(d => d.id === id)
+            const ingId = Number(ingDiv.dataset.id);
+            const curDrink = Drink.all.find(d => d.id === ingId)
             
             if (e.target.innerHTML === "More Info"){
                 // debugger;
@@ -72,6 +72,15 @@ class App {
                 <button type="button" class="btn btn-sm btn-outline-secondary">More Info</button>
                 </div>`
             }
+            else if (e.target.className == "deleteDrink") {
+                // const id = e.target.dataset.id;
+                // this.drinkAdapter.delete(id).then(() => {
+                //   Drink.all = Drink.all.filter((d) => {
+                //     return d.id != id;
+                //   });
+                //   this.renderDrinks();
+                // });
+              }
             
         }
     }
