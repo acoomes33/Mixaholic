@@ -24,6 +24,9 @@ class Drink {
             <h4 class="card-name">${this.name}</h4>
             <p class="card-text">Description: ${this.description}</p>
             <button type="button" class="deleteDrink" data-id="${this.id}">Delete Drink</button>
+            <button type="button" class="likeDrink" data-id="${this.id}">Like</button>
+            <p class="card-text"><span></span>people have liked this drink</p>
+
           </div>
           <div class="card-footer" data-id="${this.id}">
               <div class="btn-group">

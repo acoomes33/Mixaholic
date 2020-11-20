@@ -73,7 +73,7 @@ class App {
                 </div>`
             }   
         }
-        else if (e.target.innerHTML == "Delete Drink") {
+        else if (e.target.innerHTML === "Delete Drink") {
             
             const id = Number(e.target.dataset.id)
             this.drinkAdapter.delete(id).then(()  => {
@@ -82,7 +82,10 @@ class App {
                 });
                 this.renderDrinks();
             })
-          }
+        }
+        else if (e.target.innerHTML === "Like") {
+            
+        }
     }
 
     addInput(){
@@ -91,6 +94,10 @@ class App {
         newdiv.innerHTML = ` <input type="text" class="form-ingredients" id="drink_ingredients_attributes_${counter}_description" name="drink[ingredients_attributes][${counter}][description]">`
         ingDiv.appendChild(newdiv);
         counter++;
+    }
+
+    incrementLike(){
+        
     }
 
 }
