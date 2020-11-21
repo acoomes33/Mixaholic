@@ -25,6 +25,6 @@ class Adapter {
             headers: {
                 "Content-Type": "application/json",
             },
-        }).then(resp => resp.json());
+        })
     }
 }

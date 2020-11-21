@@ -7,6 +7,8 @@ class App {
         drinkForm.addEventListener("submit", this.newDrink);
         document.body.addEventListener("click", this.handleClick);
         ingButton.addEventListener("click", this.addInput);
+        
+        dateNewestButton.addEventListener("click", this.filterDrinksList);
     }
 
     getDrinks(){
@@ -47,6 +49,7 @@ class App {
        
         this.drinkAdapter.post(drink).then(d => {
             drink.id = d.id;
+            drink.created_at = d.created_at;
             this.addDrink(drink);
             drinkForm.reset();
         });
@@ -76,7 +79,8 @@ class App {
         else if (e.target.innerHTML === "Delete Drink") {
             
             const id = Number(e.target.dataset.id)
-            this.drinkAdapter.delete(id).then(()  => {
+            this.drinkAdapter.delete(id)
+            .then(()  => {
                 Drink.all = Drink.all.filter(d => {
                     return d.id != id;
                 });
@@ -96,8 +100,25 @@ class App {
         counter++;
     }
 
-    incrementLike(){
+    // incrementLike(){
         
+    // }
+
+    filterDrinksList = (e) => {
+        console.log(this)
+        Drink.all = Drink.all.sort((a, b) => {
+            const dateA = a.created_at;
+            const dateB = b.created_at;
+          
+            let comparison = 0;
+            if (dateA < dateB) {
+              comparison = 1;
+            } else if (dateA > dateB) {
+              comparison = -1;
+            }
+            return comparison;
+          });
+        this.renderDrinks();
     }
 
 }
