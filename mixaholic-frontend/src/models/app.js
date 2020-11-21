@@ -87,11 +87,10 @@ class App {
             })
         }
         else if (e.target.innerHTML === "Like") {
-            const drinkId = parseInt(e.target.dataset.id)
-            // debugger;
-            const drink = Drink.all.find(d => d.id === drinkId)
-            ++drink.like_count;
-            this.renderDrinks();
+            const drinkId = parseInt(e.target.dataset.id);
+            const drink = Drink.all.find(d => d.id === drinkId);
+            drink.like_count += 1;
+            this.drinkAdapter.update(drink).then( () => this.renderDrinks());
         }
     }
 

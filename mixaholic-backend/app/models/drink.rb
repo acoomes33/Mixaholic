@@ -8,6 +8,7 @@ class Drink < ApplicationRecord
     private 
 
     def default_values
+        
         self.like_count ||= 0
     end 
 

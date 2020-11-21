@@ -12,7 +12,7 @@ class Drink {
         // this.reviews = data.reviews;
         this.ingredients_attributes = data.ingredients;
         this.id = data.id;
-        this.like_count = 0
+        this.like_count = data.like_count
         Drink.all.push(this);
 
     }

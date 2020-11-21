@@ -27,4 +27,16 @@ class Adapter {
             },
         })
     }
+
+    update(inst) {
+        return fetch(`http://localhost:3000/${this.resource}/${inst.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(inst),
+        }).then(resp => resp.json());
+    }
+
+    
 }

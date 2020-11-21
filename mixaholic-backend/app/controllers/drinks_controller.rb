@@ -20,6 +20,17 @@ class DrinksController < ApplicationController
         end
     end
 
+    def update
+      set_drink
+      if @drink.update(drink_params)
+       
+        render json: DrinkSerializer.new(@drink).to_serialized_json
+      else
+        render json: @drink.errors.full_messages, status: :unprocessable_entity
+      end
+
+    end 
+
     def destroy
         set_drink 
         @drink.destroy
@@ -36,7 +47,9 @@ class DrinksController < ApplicationController
           :name, 
           :description, 
           :image_url, 
-          ingredients_attributes:[:id, :description])
+          :like_count,
+          ingredients_attributes:[:id, :description]
+        )
     end
 
   
