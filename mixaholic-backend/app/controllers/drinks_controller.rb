@@ -39,4 +39,6 @@ class DrinksController < ApplicationController
           ingredients_attributes:[:id, :description])
     end
 
+  
+
 end

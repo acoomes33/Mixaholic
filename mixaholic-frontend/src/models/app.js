@@ -7,8 +7,7 @@ class App {
         drinkForm.addEventListener("submit", this.newDrink);
         document.body.addEventListener("click", this.handleClick);
         ingButton.addEventListener("click", this.addInput);
-        
-        dateNewestButton.addEventListener("click", this.filterDrinksList);
+        dateNewestButton.addEventListener("click", this.newestDrinksList);
     }
 
     getDrinks(){
@@ -88,7 +87,11 @@ class App {
             })
         }
         else if (e.target.innerHTML === "Like") {
-            
+            const drinkId = parseInt(e.target.dataset.id)
+            // debugger;
+            const drink = Drink.all.find(d => d.id === drinkId)
+            ++drink.like_count;
+            this.renderDrinks();
         }
     }
 
@@ -101,10 +104,11 @@ class App {
     }
 
     // incrementLike(){
+    //     const curLikes = 
         
     // }
 
-    filterDrinksList = (e) => {
+    newestDrinksList = (e) => {
         console.log(this)
         Drink.all = Drink.all.sort((a, b) => {
             const dateA = a.created_at;

@@ -12,6 +12,7 @@ class Drink {
         // this.reviews = data.reviews;
         this.ingredients_attributes = data.ingredients;
         this.id = data.id;
+        this.like_count = 0
         Drink.all.push(this);
 
     }
@@ -24,8 +25,10 @@ class Drink {
             <h4 class="card-name">${this.name}</h4>
             <p class="card-text">Description: ${this.description}</p>
             <button type="button" class="deleteDrink" data-id="${this.id}">Delete Drink</button>
-            <button type="button" class="likeDrink" data-id="${this.id}">Like</button>
-            <p class="card-text"><span></span>people have liked this drink</p>
+            <div id="likeDiv">
+              <button type="button" class="likeDrink" data-id="${this.id}">Like</button>
+              <p class="card-text"><span>${this.like_count}</span> Likes</p>
+            </div>
 
           </div>
           <div class="card-footer" data-id="${this.id}">
@@ -41,19 +44,6 @@ class Drink {
         return `<h4>Ingredients: </h4>
         <ul> ${this.ingredients_attributes.map(ing => `<li>${ing.description}</li>`).join(" ")}
             </ul>`
-    }
-
-    compare(a, b) {
-      const dateA = a.created_at;
-      const dateB = b.created_at;
-    
-      let comparison = 0;
-      if (dateA > dateB) {
-        comparison = 1;
-      } else if (dateA < dateB) {
-        comparison = -1;
-      }
-      return comparison;
     }
 
 
