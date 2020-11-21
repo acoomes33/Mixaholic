@@ -23,7 +23,6 @@ class DrinksController < ApplicationController
     def update
       set_drink
       if @drink.update(drink_params)
-       
         render json: DrinkSerializer.new(@drink).to_serialized_json
       else
         render json: @drink.errors.full_messages, status: :unprocessable_entity

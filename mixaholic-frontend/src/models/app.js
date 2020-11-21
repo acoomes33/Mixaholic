@@ -43,7 +43,8 @@ class App {
             name: form.name.value,
             description: form.description.value,
             image_url: form.image_url.value,
-            ingredients: ing_attr
+            ingredients: ing_attr,
+            like_count: 0
         });
        
         this.drinkAdapter.post(drink).then(d => {
@@ -102,13 +103,9 @@ class App {
         counter++;
     }
 
-    // incrementLike(){
-    //     const curLikes = 
-        
-    // }
-
     newestDrinksList = (e) => {
-        console.log(this)
+        // let outerContext = this;
+        
         Drink.all = Drink.all.sort((a, b) => {
             const dateA = a.created_at;
             const dateB = b.created_at;
