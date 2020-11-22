@@ -1,4 +1,3 @@
-# README
 
 # Mixaholic README
 

@@ -34,7 +34,7 @@ class Adapter {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(inst),
+            body: JSON.stringify({like_count: inst.like_count}),
         }).then(resp => resp.json());
     }
 
