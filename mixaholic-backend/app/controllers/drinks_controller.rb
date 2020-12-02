@@ -1,13 +1,13 @@
 class DrinksController < ApplicationController
+  before_action :set_drink, only: [:show, :update, :destroy]
 
     def index
-        drinks = Drink.all
-        render json: DrinkSerializer.new(drinks).to_serialized_json
+        @drinks = Drink.all
+        render json: DrinkSerializer.new(@drinks).to_serialized_json
     end 
 
     def show 
-        drink = Drink.find_by(id: params[:id])
-        render json: DrinkSerializer.new(drink).to_serialized_json
+        render json: DrinkSerializer.new(@drink).to_serialized_json
     end 
 
     def create
@@ -21,7 +21,6 @@ class DrinksController < ApplicationController
     end
 
     def update
-      set_drink
       if @drink.update(drink_params)
         render json: DrinkSerializer.new(@drink).to_serialized_json
       else
@@ -31,7 +30,6 @@ class DrinksController < ApplicationController
     end 
 
     def destroy
-        set_drink 
         @drink.destroy
     end 
 
